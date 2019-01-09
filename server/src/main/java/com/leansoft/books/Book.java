@@ -1,6 +1,4 @@
-package books;
-
-import java.sql.Date;
+package com.leansoft.books;
 
 public class Book {
 	private String id;
