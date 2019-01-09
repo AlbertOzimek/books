@@ -5,14 +5,16 @@ import java.sql.Date;
 public class Book {
 	private String id;
 	private String title;
+	private String author;
 	private String publicationDate;
 	private String publisher;
 	private double price;
 	
-	public Book(String id, String title, String publicationDate, String publisher, double price) {
+	public Book(String id, String title, String author, String publicationDate, String publisher, double price) {
 		super();
 		this.id = id;
 		this.title = title;
+		this.author = author;
 		this.publicationDate = publicationDate;
 		this.publisher = publisher;
 		this.price = price;
@@ -47,5 +49,13 @@ public class Book {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 }
