@@ -1,0 +1,3 @@
+<div *ngFor="let book of this.getBooks() | async">
+  {{book.title}}, {{book.author}}, {{book.publicationDate}}
+</div>
