@@ -11,6 +11,7 @@ public class BooksController {
 	private BookService bookService;
 	
 	@RequestMapping("/books")
+    @CrossOrigin
 	public List<Book> getAllBooks() {
 		return this.bookService.getAllBooks();
 	

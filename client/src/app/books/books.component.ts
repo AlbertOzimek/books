@@ -9,12 +9,12 @@ import {Book} from '../../model/book';
   styleUrls: ['./books.component.scss']
 })
 export class BooksComponent implements OnInit {
+
+  books$: Observable<Array<Book>>;
+
   constructor(private  booksService: BooksService) { }
 
   ngOnInit() {
-  }
-
-  getBooks(): Observable<Array<Book>> {
-    return this.booksService.getBooks();
+    this.books$ = this.booksService.getBooks();
   }
 }

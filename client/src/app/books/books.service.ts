@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Book} from '../../model/book';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class BooksService {
 
-  books: Array<Book> = [new Book("111", "Eine kurze Geschichte der Menscheit", "Yuval Noah Harari", "2016", "DVA", 36),
-    new Book("222", "Homo Deus", "Yuval Noah Harari", "2017", "CHBECK", 37),
-    new Book("333", "21 Lektionen", "Yuval Noah Harari", "2017", "CHBECK", 37)];
+    constructor(private http: HttpClient) {
+    }
 
-  constructor() { }
-
-  public getBooks(): Observable<Array<Book>> {
-    return of(this.books);
-  }
+    public getBooks(): Observable<Array<Book>> {
+        return this.http.get<Book[]>(`${environment.apiUrl}/books`);
+    }
 }
