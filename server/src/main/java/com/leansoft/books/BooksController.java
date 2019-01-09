@@ -2,9 +2,7 @@ package com.leansoft.books;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BooksController {
@@ -23,4 +21,8 @@ public class BooksController {
 		return this.bookService.getBook(id);
 	}
 
+	@RequestMapping(method = RequestMethod.POST, value = "/books")
+	public void addBook(@RequestBody Book book) {
+       this.bookService.addBook(book);
+    }
 }
