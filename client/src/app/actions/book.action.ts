@@ -1,4 +1,5 @@
 import {Action} from '@ngrx/store';
+import {Book} from '../../model/book';
 
 
 export enum ActionTypes {
@@ -12,7 +13,7 @@ export class Fetch implements Action {
 
 export class Store implements Action {
   readonly type = ActionTypes.StoreData;
-  constructor(public payload: string) {}
+  constructor(public payload: Book[]) {}
 }
 
 export type BookActions = Fetch | Store;

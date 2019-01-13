@@ -14,7 +14,7 @@ export class BookEffect {
         ofType(ActionTypes.Fetch),
         mergeMap(
             action => {
-                return this.booksService.getAsteroids().pipe(
+                return this.booksService.getBooks().pipe(
                     map(data => {
                         return new Store(data);
                     }));

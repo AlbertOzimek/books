@@ -14,14 +14,14 @@ import {bookState} from '../selectors/book.selector';
 })
 export class BooksComponent implements OnInit {
 
-  books$: Observable<Array<Book>>;
-  asteroids$: Observable<any>
+  // books$: Observable<string[]>;
+  books$: Observable<Book[]>
 
   constructor(private  booksService: BooksService, private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.books$ = this.booksService.getBooks();
+    // this.books$ = this.booksService.getBooks();
     this.store.dispatch(new Fetch());
-    this.asteroids$ = this.store.pipe(select(bookState));
+    this.books$ = this.store.pipe(select(bookState));
   }
 }

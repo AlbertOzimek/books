@@ -1,14 +1,15 @@
 import {ActionTypes, BookActions} from '../actions/book.action';
+import {Book} from '../../model/book';
 
 
 const defaultAsteroidState: BookState ={
-  data: '',
+  data: null,
     something: ''
 };
 
 
 export interface BookState {
-  data: string;
+  data: Book[];
   something: string;
 }
 
