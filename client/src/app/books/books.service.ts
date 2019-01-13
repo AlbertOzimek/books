@@ -9,10 +9,14 @@ import {environment} from '../../environments/environment';
 })
 export class BooksService {
 
-    constructor(private http: HttpClient) {
+    constructor(private httpClient: HttpClient) {
     }
 
     public getBooks(): Observable<Array<Book>> {
-        return this.http.get<Book[]>(`${environment.apiUrl}/books`);
+        return this.httpClient.get<Book[]>(`${environment.apiUrl}/books`);
+    }
+
+    public getAsteroids(): Observable<string>  {
+        return this.httpClient.get<string>('https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=DEMO_KEY');
     }
 }

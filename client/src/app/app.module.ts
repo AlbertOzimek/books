@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { BooksComponent } from './books/books.component';
 import {HttpClientModule} from '@angular/common/http';
 import { BookComponent } from './books/book/book.component';
+import {StoreModule} from '@ngrx/store';
+import {appReducers} from './reducers/app.reducer';
+import {BookEffect} from './effects/book.effect';
+import {EffectsModule} from '@ngrx/effects';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,10 @@ import { BookComponent } from './books/book/book.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot([BookEffect]),
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [],
   bootstrap: [AppComponent]

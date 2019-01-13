@@ -1,3 +1,5 @@
 <div *ngFor="let book of this.books$ | async">
     <a routerLink="/books/{{book.id}}">{{book.title}}, {{book.author}}, {{book.publicationDate}}</a>
 </div>
+
+{{asteroids$ | async | json}}
