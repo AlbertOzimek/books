@@ -28,4 +28,16 @@ public class BooksController {
 	public void addBook(@RequestBody Book book) {
        this.bookService.addBook(book);
     }
+
+	@RequestMapping(method = RequestMethod.PUT, value = "/books/{id}")
+	@CrossOrigin
+	public void updateBook(@RequestBody Book book, @PathVariable String id) {
+		this.bookService.updateBook(book, id);
+	}
+
+	@RequestMapping(method = RequestMethod.DELETE, value = "/books/{id}")
+	@CrossOrigin
+	public void deleteBook(@PathVariable String id) {
+		this.bookService.deleteBook(id);
+	}
 }
